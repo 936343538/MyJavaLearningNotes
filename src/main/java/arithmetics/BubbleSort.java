@@ -1,7 +1,8 @@
 package arithmetics;
 
+import api.MyArraysDemo;
+
 import java.util.Arrays;
-import java.util.Random;
 
 /**
  * 冒泡排序
@@ -9,12 +10,7 @@ import java.util.Random;
 public class BubbleSort {
 
     public static void main(String[] args) {
-        int[] arr = new int[5];
-        Random random = new Random();
-        for (int n = 0; n < arr.length; n++) {
-            int i = random.nextInt(100 - 1);
-            arr[n] = i;
-        }
+        int[] arr = MyArraysDemo.getInts(5);
         //原始数组顺序
         print(arr);
 
@@ -28,6 +24,12 @@ public class BubbleSort {
         System.out.println(Arrays.toString(arrSort));
     }
 
+    /**
+     * 冒泡排序
+     *
+     * @param arr 需要排序的数组
+     * @return 排序完成的数组
+     */
     private static int[] bubbleSort(int[] arr) {
         int temp;
         //外循环是数组长度-1 长度为n的数组只需要比较n-1次
