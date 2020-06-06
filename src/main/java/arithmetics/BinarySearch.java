@@ -5,7 +5,9 @@ package arithmetics;
  */
 public class BinarySearch {
     public static void main(String[] args) {
+        //一个int类型的数组从小到大排列,从中找出一个给定的int值,如果存在返回该数组的索引,否则返回-1
         int[] arr = {1, 2, 3, 4, 5, 6, 7, 8, 9, 10};
+        //定义需要查找的int类型的值
         int num = 1;
 
         int index = binarySearch(arr, num);
