@@ -29,7 +29,7 @@ public class BubbleSort {
     }
 
     private static int[] bubbleSort(int[] arr) {
-        int num;
+        int temp;
         //外循环是数组长度-1 长度为n的数组只需要比较n-1次
         for (int i = 0; i < arr.length - 1; i++) {
             //-1 : 防止数组越界
@@ -37,9 +37,9 @@ public class BubbleSort {
             for (int j = 0; j < arr.length - 1 - i; j++) {
                 boolean is = arr[j] > arr[j + 1];
                 if (is) {
-                    num = arr[j];
+                    temp = arr[j];
                     arr[j] = arr[j + 1];
-                    arr[j + 1] = num;
+                    arr[j + 1] = temp;
                 }
             }
         }
