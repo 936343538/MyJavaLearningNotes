@@ -17,7 +17,7 @@ public class MyBigDecimalDemo {
         //减法 subtract
 //        System.out.println(b1.subtract(b2));
         //乘法
-        multiply(b1, b2);
+//        multiply(b1, b2);
         //除法
 //        divide(b1, b2);
     }
