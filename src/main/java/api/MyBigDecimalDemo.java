@@ -20,6 +20,8 @@ public class MyBigDecimalDemo {
 //        multiply(b1, b2);
         //除法
         divide(b1, b2);
+        //比大小
+        System.out.println((parameterCalibration(b1)));
     }
 
     /**
@@ -88,6 +90,13 @@ public class MyBigDecimalDemo {
         BigDecimal divide3 = b1.divide(b2, 2, BigDecimal.ROUND_HALF_UP);
         //3.33
         System.out.println("四舍五入:" + divide3);
+    }
+
+    private static final BigDecimal five = new BigDecimal("5");
+    private static final BigDecimal zero = new BigDecimal("0");
+
+    private static boolean parameterCalibration(BigDecimal bigDecimal) {
+        return bigDecimal.compareTo(five) > 0 || bigDecimal.compareTo(zero) < 0;
     }
 
 }
