@@ -1,4 +1,4 @@
-package webmagic;
+package model;
 
 /**
  * @author hongzf
