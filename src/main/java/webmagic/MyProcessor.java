@@ -5,6 +5,8 @@ import us.codecraft.webmagic.Site;
 import us.codecraft.webmagic.Spider;
 import us.codecraft.webmagic.processor.PageProcessor;
 import us.codecraft.webmagic.selector.Selectable;
+import model.Address;
+import utils.PinyinUtils;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -21,7 +23,7 @@ public class MyProcessor implements PageProcessor {
     public static void main(String[] args) {
         Spider.create(new MyProcessor())
                 //添加抓取页面网址
-                .addUrl("http://www.stats.gov.cn/tjsj/tjbz/tjyqhdmhcxhfdm/2019/35.html")
+                .addUrl("http://www.stats.gov.cn/tjsj/tjbz/tjyqhdmhcxhfdm/2019/50.html")
                 //开启5个线程抓取
 //                .thread(5)
                 //使用json格式保存数据
@@ -76,7 +78,7 @@ public class MyProcessor implements PageProcessor {
             index = 3;
             s = "";
         }
-        List<AdministrativeDivisionPojo> pojoList = new ArrayList<AdministrativeDivisionPojo>();
+        List<Address> addressList = new ArrayList<Address>();
         for (Selectable node : nodes) {
             String code = node.xpath("//td[1]/" + s + "text()|//td[1]/text()").get();
             String name = node.xpath("//td[" + index + "]/" + s + "text()|//td[" + index + "]/text()").get();
@@ -85,11 +87,9 @@ public class MyProcessor implements PageProcessor {
                 System.err.println(node);
                 continue;
             }
-            AdministrativeDivisionPojo pojo = new AdministrativeDivisionPojo();
-            pojo.setCoder(code);
-            pojo.setName(name);
-            pojoList.add(pojo);
-            page.putField("pojoList", pojoList);
+            Address address = this.getAddress(code, name);
+            addressList.add(address);
+            page.putField("addressList", addressList);
 //            System.out.println(code + " : " + name);
         }
 
@@ -97,6 +97,72 @@ public class MyProcessor implements PageProcessor {
         List<String> urlList = page.getHtml().links().regex("http://www.stats.gov.cn/tjsj/tjbz/tjyqhdmhcxhfdm/2019/.*\\.html").all();
         page.addTargetRequests(urlList);
     }
+
+    /**
+     * 数据处理
+     *
+     * @param code
+     * @param name
+     * @return
+     */
+    private Address getAddress(String code, String name) {
+        Address address = new Address();
+        address.setBfRegionId(code);
+        address.setLocalName(name);
+        address.setAreaNum(code);
+        address.setDataState("1");
+        addressBuild(address);
+        return address;
+    }
+
+    private void addressBuild(Address address) {
+        String code = address.getBfRegionId();
+        String ex = "1";
+        String pid = "";
+        String pids = ",";
+        long integer = Long.parseLong(code);
+        long n = 1000;
+        long i = integer % (n);
+        long i2 = integer / n * n;
+        for (int j = 4; j > 0; j--) {
+            if (i > 0) {
+                ex = "" + (j + 1);
+                pid = i2 + "";
+                pids = getPid(pid, ex);
+                break;
+            } else {
+                if (j == 4) {
+                    n = 1000000;
+                } else if (j == 3) {
+                    n = 100000000;
+                } else if (j == 2) {
+                    n = 1000000000;
+                }
+                i = integer % n;
+                i2 = integer / n * n;
+            }
+        }
+
+        address.setpRegionId(pid);
+        address.setRegionGrade(ex);
+        address.setRegionPath(pids+address.getBfRegionId()+",");
+        String name = PinyinUtils.getFirstCharacterInitials(address.getLocalName());
+        address.setSortName(name);
+    }
+
+    private static String getPid(String pid, String ex) {
+        if ("2".equals(ex)) {
+            return "," + pid + ",";
+        } else if ("3".equals(ex)) {
+            return "," + pid.substring(0, 3) + "00000000" + "," + pid + ",";
+        } else if ("4".equals(ex)) {
+            return "," + pid.substring(0, 3) + "00000000," + pid.substring(0, 4) + "00000000" + "," + pid + ",";
+        } else {
+            return "," + pid.substring(0, 3) + "00000000," + pid.substring(0, 4) + "00000000," + pid.substring(0, 6)+"000000," + pid + ",";
+        }
+    }
+
+
 
     /**
      * setCharset(String)	    设置编码	site.setCharset("utf-8")
