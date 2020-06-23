@@ -34,7 +34,7 @@ public class MyPipeline implements Pipeline {
 
             // get the content in bytes
             for (Address address : pojoList) {
-                String co = "insert into bf_region (BF_REGION_ID, P_REGION_ID, REGION_PATH,REGION_GRADE, LOCAL_NAME, SORT_NAME, AREA_NUM,  DATA_STATE) values ('"+address.getBfRegionId()+"', '"+address.getpRegionId()+"', '"+address.getRegionPath()+"', '"+address.getRegionGrade()+"', '"+address.getLocalName()+"', '"+address.getSortName()+"', '"+address.getAreaNum()+"', '"+address.getDataState()+"');";
+                String co = "insert into bf_region (BF_REGION_ID, P_REGION_ID, REGION_PATH,REGION_GRADE, LOCAL_NAME, SORT_NAME, AREA_NUM,  DATA_STATE) values ('"+address.getBfRegionId()+"', '"+address.getPRegionId()+"', '"+address.getRegionPath()+"', '"+address.getRegionGrade()+"', '"+address.getLocalName()+"', '"+address.getSortName()+"', '"+address.getAreaNum()+"', '"+address.getDataState()+"');";
                 fop.write(co.getBytes());
                 fop.write(l.getBytes());
             }

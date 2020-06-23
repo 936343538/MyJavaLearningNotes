@@ -34,7 +34,11 @@ public class MyProcessor implements PageProcessor {
                 .run();
     }
 
-    // process是定制爬虫逻辑的核心接口，在这里编写抽取逻辑
+    /**
+     * process是定制爬虫逻辑的核心接口，在这里编写抽取逻辑
+     * @param page
+     */
+    @Override
     public void process(Page page) {
 
 
@@ -143,7 +147,7 @@ public class MyProcessor implements PageProcessor {
             }
         }
 
-        address.setpRegionId(pid);
+        address.setPRegionId(pid);
         address.setRegionGrade(ex);
         address.setRegionPath(pids+address.getBfRegionId()+",");
         String name = PinyinUtils.getFirstCharacterInitials(address.getLocalName());
@@ -179,6 +183,7 @@ public class MyProcessor implements PageProcessor {
      *
      * @return
      */
+    @Override
     public Site getSite() {
         //gb2312  只能表示简体中文。如果将 gb2312 的字体串转化为 UTF-8 的字符串，繁体中文是会乱码的。解决方案是先将 gb2312 转化为 GBK 编码，再转化为 UTF-8 编码。
         //GBK 是 gb2312 的超集，它兼容 gb2312 编码，同时还包括繁体中文编码。因为idea设置的字符编码是utf-8,所以idea输出gb2312的中文会出现乱乱码
