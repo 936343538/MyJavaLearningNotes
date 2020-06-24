@@ -14,14 +14,14 @@ package design.mode.factorymethodpattern;
  * @version: V1.0
  * @modified: yangkai.shen
  */
-public class LemonCandyFactory extends CandyFactory {
+public class LemonCandyFactory extends AbstractCandyFactory {
     /**
      * 生产柠檬味糖果
      *
      * @return 柠檬味糖果
      */
     @Override
-    public Candy produceCandy() {
+    public AbstractCandy produceCandy() {
         return new LemonCandy();
     }
 }

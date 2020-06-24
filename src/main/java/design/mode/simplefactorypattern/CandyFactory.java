@@ -21,10 +21,12 @@ public class CandyFactory {
      * @param taste 具体口味
      * @return 对应口味的糖果
      */
-    public Candy produceCandy(String taste) {
-        if ("lemon".equalsIgnoreCase(taste)) {
+    public AbstractCandy produceCandy(String taste) {
+        String lemon = "lemon";
+        String watermelon = "watermelon";
+        if (lemon.equalsIgnoreCase(taste)) {
             return new LemonCandy();
-        } else if ("watermelon".equalsIgnoreCase(taste)) {
+        } else if (watermelon.equalsIgnoreCase(taste)) {
             return new WatermelonCandy();
         }
         return null;
@@ -36,10 +38,10 @@ public class CandyFactory {
      * @param c 具体口味的糖果类
      * @return 对应口味的糖果
      */
-    public Candy produceCandy(Class c) {
-        Candy candy = null;
+    public AbstractCandy produceCandy(Class c) {
+        AbstractCandy candy = null;
         try {
-            candy = (Candy) Class.forName(c.getName()).newInstance();
+            candy = (AbstractCandy) Class.forName(c.getName()).newInstance();
         } catch (InstantiationException e) {
             e.printStackTrace();
         } catch (IllegalAccessException e) {

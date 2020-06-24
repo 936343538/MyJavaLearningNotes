@@ -14,11 +14,11 @@ package design.mode.factorymethodpattern;
  * @version: V1.0
  * @modified: yangkai.shen
  */
-public abstract class CandyFactory {
+public abstract class AbstractCandyFactory {
     /**
      * 生产糖果
      *
      * @return 对应口味的糖果
      */
-    public abstract Candy produceCandy();
+    public abstract AbstractCandy produceCandy();
 }

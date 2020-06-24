@@ -16,12 +16,12 @@ package design.mode.factorymethodpattern;
  */
 public class PatternTest {
     public static void main(String[] args) {
-        CandyFactory factory1 = new LemonCandyFactory();
-        Candy candy1 = factory1.produceCandy();
+        AbstractCandyFactory factory1 = new LemonCandyFactory();
+        AbstractCandy candy1 = factory1.produceCandy();
         candy1.taste();
 
-        CandyFactory factory2 = new WatermelonCandyFactory();
-        Candy candy2 = factory2.produceCandy();
+        AbstractCandyFactory factory2 = new WatermelonCandyFactory();
+        AbstractCandy candy2 = factory2.produceCandy();
         candy2.taste();
     }
 }

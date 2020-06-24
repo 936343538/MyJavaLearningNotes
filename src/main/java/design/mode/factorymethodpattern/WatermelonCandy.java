@@ -14,7 +14,7 @@ package design.mode.factorymethodpattern;
  * @version: V1.0
  * @modified: yangkai.shen
  */
-public class WatermelonCandy extends Candy {
+public class WatermelonCandy extends AbstractCandy {
     /**
      * 口味
      */

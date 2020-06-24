@@ -23,7 +23,7 @@ package design.mode.factorymethodpattern;
  * @version: V1.0
  * @modified: yangkai.shen
  */
-public abstract class Candy {
+public abstract class AbstractCandy {
 
     /**
      * 口味

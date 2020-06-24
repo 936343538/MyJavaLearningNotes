@@ -18,15 +18,15 @@ public class PatternTest {
     public static void main(String[] args) {
         CandyFactory factory = new CandyFactory();
         // 测试工厂类方法 - 1
-        Candy candy1 = factory.produceCandy("lemon");
+        AbstractCandy candy1 = factory.produceCandy("lemon");
         candy1.taste();
-        Candy candy2 = factory.produceCandy("watermelon");
+        AbstractCandy candy2 = factory.produceCandy("watermelon");
         candy2.taste();
 
         // 测试工厂类方法 - 2
-        Candy candy3 = factory.produceCandy(LemonCandy.class);
+        AbstractCandy candy3 = factory.produceCandy(LemonCandy.class);
         candy3.taste();
-        Candy candy4 = factory.produceCandy(WatermelonCandy.class);
+        AbstractCandy candy4 = factory.produceCandy(WatermelonCandy.class);
         candy4.taste();
     }
 }
