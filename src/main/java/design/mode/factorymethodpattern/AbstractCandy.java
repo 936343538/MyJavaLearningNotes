@@ -1,10 +1,11 @@
 package design.mode.factorymethodpattern;
 
 /**
+ * 创建型设计模式 - 工厂方法模式
+ *
  * 步骤一：创建抽象糖果类
- * <p>
+ *
  * 糖果抽象类
- * </p>
  * 5. 应用
  * JDK中的应用
  * 获取日历对象 -> Calendar.getInstance() -> createCalendar(TimeZone zone,Locale aLocale)
