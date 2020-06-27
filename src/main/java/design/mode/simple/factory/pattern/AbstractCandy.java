@@ -1,4 +1,4 @@
-package design.mode.simplefactorypattern;
+package design.mode.simple.factory.pattern;
 
 /**
  * 创建型设计模式 - 简单工厂模式

@@ -1,4 +1,4 @@
-package design.mode.singletonpattern;
+package design.mode.singleton.pattern;
 
 import java.lang.reflect.Constructor;
 import java.lang.reflect.InvocationTargetException;

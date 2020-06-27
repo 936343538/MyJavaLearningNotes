@@ -1,4 +1,4 @@
-package design.mode.factorymethodpattern;
+package design.mode.factory.method.pattern;
 
 /**
  * 步骤二：创建抽象糖果工厂类

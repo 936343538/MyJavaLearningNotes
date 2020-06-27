@@ -1,15 +1,15 @@
-package design.mode.factorymethodpattern;
+package design.mode.simple.factory.pattern;
 
 /**
- * 步骤三：创建具体的不同口味的糖果类
+ * 步骤二：创建具体的不同口味的糖果类
  * <p>
  * 西瓜味糖果
  * </p>
  *
- * @package: com.xkcoding.design.pattern.creational.factorymethod
+ * @package: com.xkcoding.design.pattern.creational.simplefactory
  * @description: 西瓜味糖果
  * @author: yangkai.shen
- * @date: Created in 2019-02-14 11:28
+ * @date: Created in 2019-02-13 10:36
  * @copyright: Copyright (c) 2019
  * @version: V1.0
  * @modified: yangkai.shen

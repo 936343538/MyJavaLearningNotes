@@ -1,4 +1,4 @@
-package design.mode.factorymethodpattern;
+package design.mode.factory.method.pattern;
 
 /**
  * 创建型设计模式 - 工厂方法模式

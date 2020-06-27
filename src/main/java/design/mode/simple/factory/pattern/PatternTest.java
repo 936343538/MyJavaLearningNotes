@@ -1,4 +1,4 @@
-package design.mode.simplefactorypattern;
+package design.mode.simple.factory.pattern;
 
 /**
  * 步骤四：调用工厂类生产具体口味的糖果

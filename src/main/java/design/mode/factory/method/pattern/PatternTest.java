@@ -1,4 +1,4 @@
-package design.mode.factorymethodpattern;
+package design.mode.factory.method.pattern;
 
 /**
  * 步骤五： 测试

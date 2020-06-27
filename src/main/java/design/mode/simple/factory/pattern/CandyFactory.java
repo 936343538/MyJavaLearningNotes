@@ -1,4 +1,4 @@
-package design.mode.simplefactorypattern;
+package design.mode.simple.factory.pattern;
 
 /**
  * 步骤三：创建糖果工厂

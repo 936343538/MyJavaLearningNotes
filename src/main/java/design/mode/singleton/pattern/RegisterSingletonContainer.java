@@ -1,4 +1,4 @@
-package design.mode.singletonpattern;
+package design.mode.singleton.pattern;
 
 import java.util.Map;
 import java.util.concurrent.ConcurrentHashMap;

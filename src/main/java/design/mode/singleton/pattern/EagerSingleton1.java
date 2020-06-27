@@ -1,9 +1,9 @@
-package design.mode.singletonpattern;
+package design.mode.singleton.pattern;
 
 /**
- * <p>
+ * 创建型设计模式 - 单例模式
+ *
  * 饿汉式单例，在属性初始化
- * </p>
  *
  * 4. 应用
  * 4.1. ServletContext
