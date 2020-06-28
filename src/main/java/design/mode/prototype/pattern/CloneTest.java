@@ -5,7 +5,7 @@ public class CloneTest {
 //        Person person = new Person(22,"LiLei");
 //        Person newPerson = person.clone();
 //        person.setAge(21);
-//        person.setName("HanMeimei");
+//        person.setName("HanMaimed");
 //        System.out.println(person.toString());
 //        System.out.println(newPerson.toString());
         //即在克隆出新的对象后，修改被克隆对象的基本属性，并不会影响克隆出来的对象。但当被克隆的对象的属性引用其他对象时，此时会有不同的结果。
@@ -18,7 +18,7 @@ public class CloneTest {
         Student newStudent = student.clone();
 
         // 修改原有对象的属性
-        student.setName("HanMeimei");
+        student.setName("HanMaimed");
         student.getAchievement().setChinese(90);
         student.getAchievement().setEnglish(90);
         student.getAchievement().setMath(90);
