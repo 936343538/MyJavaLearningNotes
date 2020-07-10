@@ -1,0 +1,13 @@
+server:
+  port: 8080
+  servlet:
+    context-path: /demo
+
+
+spring:
+  mvc:
+    #发生异常直接抛出,框架不要处理
+    throw-exception-if-no-handler-found: true
+  resources:
+    #不要为我们工程中的资源文件建立映射
+    add-mappings: false
