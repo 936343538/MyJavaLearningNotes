@@ -1,6 +1,8 @@
 package utils;
 
+import cn.hutool.core.collection.IterUtil;
 import cn.hutool.core.io.FileUtil;
+import cn.hutool.core.swing.clipboard.ClipboardUtil;
 import cn.hutool.core.util.ClassLoaderUtil;
 import cn.hutool.core.util.StrUtil;
 
@@ -54,20 +56,27 @@ public class DevUtil {
     }
 
     /**
-     * sql语句转javaBean
+     * sql语句转javaBean并复制到剪切板
      *
      * @param sql sql中select 和 form 中间的查询字段
      */
     public static void sqlToJavaBean(String sql) {
         List<String> split = StrUtil.split(sql, ',', true, true);
-        System.out.println("============开始============");
+        StringBuffer builder = new StringBuffer();
         split.forEach(s -> {
             List<String> a = StrUtil.split(s, ' ');
             List<String> b = StrUtil.split(a.get(a.size() - 1), '.', true, true);
             String c = StrUtil.toCamelCase(b.get(b.size() - 1).toLowerCase(Locale.ROOT));
-            String d = StrUtil.format("private String {};", c);
-            System.out.println(d);
+            Set<String> strings = map.get(c);
+            String d;
+            if (IterUtil.isEmpty(strings)) {
+                d = StrUtil.format("private String {};", c);
+            } else {
+                d = StrUtil.format("private {} {};", String.join(",", strings), c);
+            }
+            builder.append(d);
         });
+        ClipboardUtil.setStr(builder.toString());
     }
 
     static Map<String, Set<String>> map = new HashMap<>();
