@@ -87,6 +87,15 @@ public class TestUtil {
         return RandomUtil.randomEle(prefixPhone) + RandomUtil.randomNumbers(8);
     }
 
+    private static final String[] prefixTel = {"0591", "0592", "0593", "0594", "0595", "0596", "0597", "0598", "0599"};
+
+    /**
+     * 随机获取一个电话号码
+     */
+    public static String tel() {
+        return RandomUtil.randomEle(prefixTel) + "-8" + RandomUtil.randomNumbers(6);
+    }
+
     /**
      * 随机获取一个人名
      */
