@@ -2,11 +2,13 @@ package utils;
 
 import cn.hutool.core.collection.IterUtil;
 import cn.hutool.core.date.DateUtil;
+import cn.hutool.core.date.LocalDateTimeUtil;
 import cn.hutool.core.lang.WeightRandom;
 import cn.hutool.core.util.RandomUtil;
 import cn.hutool.json.JSONUtil;
 
 import java.time.LocalDate;
+import java.time.LocalDateTime;
 import java.util.*;
 
 /**
@@ -131,6 +133,13 @@ public class TestUtil {
     }
 
     /**
+     * 获取一个过去的时间
+     */
+    public static LocalDateTime beforeTimeToLocalDateTime() {
+        return LocalDateTimeUtil.of(beforeTimeToDate());
+    }
+
+    /**
      * 获取一个指定日期之前的时间
      */
     public static long beforeTime(Date date) {
@@ -159,6 +168,13 @@ public class TestUtil {
     }
 
     /**
+     * 获取一个指定日期之前的时间
+     */
+    public static LocalDateTime beforeTimeToLocalDateTime(LocalDateTime localDateTime) {
+        return LocalDateTimeUtil.of(beforeTimeToDate(DateUtil.date(localDateTime)));
+    }
+
+    /**
      * 获取一个未来的时间戳
      */
     public static long afterTime() {
@@ -170,6 +186,13 @@ public class TestUtil {
      */
     public static Date afterTimeToDate() {
         return DateUtil.offsetMinute(DateUtil.tomorrow(), RandomUtil.randomInt(0, 99999));
+    }
+
+    /**
+     * 获取一个未来的时间
+     */
+    public static LocalDateTime afterTimeToLocalDateTime() {
+        return LocalDateTimeUtil.of(afterTimeToDate());
     }
 
     /**
@@ -201,6 +224,13 @@ public class TestUtil {
     }
 
     /**
+     * 获取一个指定日期之前的时间
+     */
+    public static LocalDateTime afterTimeToLocalDateTime(LocalDateTime localDateTime) {
+        return LocalDateTimeUtil.of(afterTimeToDate(DateUtil.date(localDateTime)));
+    }
+
+    /**
      * 获取最近的时间戳
      */
     public static long latelyTime() {
@@ -212,6 +242,13 @@ public class TestUtil {
      */
     public static Date latelyTimeToDate() {
         return DateUtil.offsetMinute(DateUtil.date(), RandomUtil.randomInt(-99999, 99999));
+    }
+
+    /**
+     * 获取一个未来的时间
+     */
+    public static LocalDateTime latelyTimeToLocalDateTime() {
+        return LocalDateTimeUtil.of(latelyTimeToDate());
     }
 
     /**
