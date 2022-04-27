@@ -7,6 +7,7 @@ import cn.hutool.core.lang.WeightRandom;
 import cn.hutool.core.util.RandomUtil;
 import cn.hutool.json.JSONUtil;
 
+import java.math.BigDecimal;
 import java.time.LocalDate;
 import java.time.LocalDateTime;
 import java.util.*;
@@ -126,6 +127,22 @@ public class TestUtil {
             "佳怡", "佳惠", "晨茜", "晨璐", "运昊", "汝鑫", "淑君", "晶滢", "润莎", "榕汕",
             "佳钰", "佳玉", "晓庆", "一鸣", "语晨", "添池", "添昊", "雨泽", "雅晗", "雅涵",
             "清妍", "诗悦", "嘉乐", "晨涵", "天赫", "玥傲", "佳昊", "天昊", "萌萌", "若萌"};
+
+    /**
+     * 随机获取一个lng
+     * @return lng
+     */
+    public static BigDecimal getLng() {
+        return new BigDecimal("118.08"+RandomUtil.randomNumbers(6));
+    }
+
+    /**
+     * 随机获取一个lat
+     * @return lat
+     */
+    public static BigDecimal getLat() {
+        return new BigDecimal("24.48"+RandomUtil.randomNumbers(6));
+    }
 
     /**
      * 获取一个过去的时间戳
